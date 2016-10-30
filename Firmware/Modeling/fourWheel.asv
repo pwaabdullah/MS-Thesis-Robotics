@@ -10,7 +10,7 @@ s = serial('COM6');
 set(s,'BaudRate',38400);
 fopen(s);
 %% direct profile
-A = [0
+A = [00
      0 
      0];
 D = [-sin(-60*pi/180) cos(-60*pi/180) 1
@@ -47,7 +47,7 @@ else
   d4=0;
 end
 
-D=strcat (int2str(d1),'.',int2str(abs(v(1))),'.',int2str(d2),'.',int2str(abs(v(2))),'.',int2str(d3),'.',int2str(abs(v(3))),'.',int2str(d4),'.',int2str(abs(v(4))),'\n')
+D=strcat (int2str(d1),'.',int2str(abs(v(1))),'.',int2str(d2),'.',int2str(abs(v(2))),'.',int2str(d3),'.',int2str(abs(v(3))),'.',int2str(d4),'.',int2str(abs(v(4))))
 
 fprintf(s,D)
 %%
