@@ -193,7 +193,7 @@ void setup()
 
   for (int i = 0; i < 32; i++) // We take some readings...
   {
-    Read_Gyro();
+//    Read_Gyro();
     Read_Accel();
     for (int y = 0; y < 6; y++) // Cumulate values
       AN_OFFSET[y] += AN[y];

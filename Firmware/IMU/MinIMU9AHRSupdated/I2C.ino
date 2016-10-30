@@ -82,7 +82,7 @@ void Read_Accel()
   compass.readAcc();
   
   AN[3] = compass.a.x >> 4; // shift left 4 bits to use 12-bit representation (1 g = 256)
-  AN[4] = compass.a.y >> 4;
+  AN[4] = compasms.a.y >> 4;
   AN[5] = compass.a.z >> 4;
   accel_x = SENSOR_SIGN[3] * (AN[3] - AN_OFFSET[3]);
   accel_y = SENSOR_SIGN[4] * (AN[4] - AN_OFFSET[4]);
