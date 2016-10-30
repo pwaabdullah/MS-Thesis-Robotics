@@ -10,8 +10,8 @@ s = serial('COM6');
 set(s,'BaudRate',38400);
 fopen(s);
 %% direct profile
-A = [-80
-     80 
+A = [0
+     0 
      0];
 D = [-sin(-60*pi/180) cos(-60*pi/180) 1
      -sin(60*pi/180) cos(60*pi/180) 1
