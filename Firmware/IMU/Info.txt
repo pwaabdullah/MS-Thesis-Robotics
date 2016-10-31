@@ -1,0 +1,1 @@
+Acce: datasheet: https://www.pololu.com/file/0J1088/LSM6DS33-AN4682.pdf

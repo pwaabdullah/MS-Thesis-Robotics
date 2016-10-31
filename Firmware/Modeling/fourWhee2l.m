@@ -19,10 +19,8 @@ for i=2:inf
     pause(1)
     t(i)=toc;   
     T=t(i)-t(i-1);
-    vvx = 100;
-    vvy = 0;
-    x(i)=700*sin(t(i)*.1);
-    y(i)=700*cos(.1*t(i));
+    x(i)=550*sin(t(i)*.3);
+    y(i)=550*cos(t(i)*.3);
     dx(i)=(x(i)-x(i-1))/T;
     dy(i)=(y(i)-y(i-1))/T;
 %     dx(i)=(3*cos((3*t(i))/5))/10;
