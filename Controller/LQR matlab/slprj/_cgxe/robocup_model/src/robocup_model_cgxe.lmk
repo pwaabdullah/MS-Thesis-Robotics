@@ -1,39 +1,41 @@
-CC     = "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\bin\lcc64.exe"
-LD     = "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\bin\lcclnk64.exe"
-LIBCMD = "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CC     = "C:\Program Files\MATLAB\R2015b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2015b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2015b\sys\lcc64\lcc64\bin\lcclib64.exe"
 CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
-LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2015b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
 LIBFLAGS = 
 
 OBJECTS = \
 	"lccstub.obj"\
 	"robocup_model_cgxe.obj"\
-	"m_nDmS38SZ3sHBJKA7UrolW.obj"\
-	"m_tt36X2ncayc7iQeNkctM4F.obj"\
+	"m_owKPoy1aFja8C3yCftdRL.obj"\
+	"m_UNza5NJYMU5Va6ej8pRN9F.obj"\
 	"robocup_model_cgxe_registry.obj"\
 	"robocup_model_cgxe.def"\
-	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmwblas.lib"\
-	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmx.lib"\
-	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmex.lib"\
-	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmat.lib"\
-	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libfixedpoint.lib"\
-	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libut.lib"\
-	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libmwmathutil.lib"\
-	"C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\libemlrt.lib"\
-	"C:\Program Files\MATLAB\R2014a\lib\win64\libippmwipt.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libmwblas.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libmx.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libmex.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libmat.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libut.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libemlrt.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libmwcgxert.lib"\
+	"C:\Program Files\MATLAB\R2015b\lib\win64\libmwipp.lib"\
+	"C:\Program Files\MATLAB\R2015b\extern\lib\win64\microsoft\libcovrt.lib"\
 
-INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2014a\extern\include"  -I"C:\Program Files\MATLAB\R2014a\simulink\include"  -I"C:\Program Files\MATLAB\R2014a\rtw\c\src" 
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2015b\sys\lcc64\lcc64\include64"  -I"C:\Program Files\MATLAB\R2015b\extern\include"  -I"C:\Program Files\MATLAB\R2015b\simulink\include"  -I"C:\Program Files\MATLAB\R2015b\rtw\c\src" 
  
 
 robocup_model_cgxe.mexw64 : $(MAKEFILE) $(OBJECTS)
 	$(LD) $(LDFLAGS) -o robocup_model_cgxe.mexw64 @robocup_model_cgxe.lmko
-lccstub.obj :	"C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\mex\lccstub.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2014a\sys\lcc64\lcc64\mex\lccstub.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2015b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2015b\sys\lcc64\lcc64\mex\lccstub.c"
 robocup_model_cgxe.obj :	"robocup_model_cgxe.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "robocup_model_cgxe.c"
-m_nDmS38SZ3sHBJKA7UrolW.obj :	"m_nDmS38SZ3sHBJKA7UrolW.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_nDmS38SZ3sHBJKA7UrolW.c"
-m_tt36X2ncayc7iQeNkctM4F.obj :	"m_tt36X2ncayc7iQeNkctM4F.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_tt36X2ncayc7iQeNkctM4F.c"
+m_owKPoy1aFja8C3yCftdRL.obj :	"m_owKPoy1aFja8C3yCftdRL.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_owKPoy1aFja8C3yCftdRL.c"
+m_UNza5NJYMU5Va6ej8pRN9F.obj :	"m_UNza5NJYMU5Va6ej8pRN9F.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_UNza5NJYMU5Va6ej8pRN9F.c"
 robocup_model_cgxe_registry.obj :	"robocup_model_cgxe_registry.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "robocup_model_cgxe_registry.c"

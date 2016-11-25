@@ -18,7 +18,6 @@ static void mdlStart(SimStruct* S)
 
 static void mdlInitializeConditions(SimStruct *S)
 {
-  /*sf_mex_error_direct_call(S, "mdlInitializeConditions", "sf_sfun");*/
   mexPrintf("ERROR: Calling model mdlInitializeConditions method directly.\n");
 }
 
@@ -26,19 +25,16 @@ static void mdlInitializeConditions(SimStruct *S)
 
 static void mdlUpdate(SimStruct *S, int_T tid)
 {
-  /*sf_mex_error_direct_call(S, "mdlUpdate", "sf_sfun");*/
   mexPrintf("ERROR: Calling model mdlUpdate method directly.\n");
 }
 
 static void mdlOutputs(SimStruct* S, int_T tid)
 {
-  /*sf_mex_error_direct_call(S, "mdlOutputs", "sf_sfun");*/
-  mexPrintf("ERROR: Calling model mdlOUtputs method directly.\n");
+  mexPrintf("ERROR: Calling model mdlOutputs method directly.\n");
 }
 
 static void mdlTerminate(SimStruct *S)
 {
-  /*sf_mex_error_direct_call(S, "mdlOutputs", "sf_sfun");*/
   mexPrintf("ERROR: Calling model mdlTerminate method directly.\n");
 }
 
@@ -57,17 +53,17 @@ static mxArray* cgxe_get_supported_modules(void)
   uint32_T* checksumData = NULL;
   mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
   checksumData = (uint32_T*) mxGetData(mxChksum);
-  checksumData[0] = 331709438;
-  checksumData[1] = 2539423650;
-  checksumData[2] = 2210995290;
-  checksumData[3] = 236571053;
+  checksumData[0] = 2837309474;
+  checksumData[1] = 1635128444;
+  checksumData[2] = 2603969495;
+  checksumData[3] = 1999517435;
   mxSetCell(mxModules, 0, mxChksum);
   mxChksum = mxCreateNumericMatrix(1, 4, mxUINT32_CLASS, mxREAL);
   checksumData = (uint32_T*) mxGetData(mxChksum);
-  checksumData[0] = 1666341979;
-  checksumData[1] = 355480991;
-  checksumData[2] = 1051679561;
-  checksumData[3] = 3056227516;
+  checksumData[0] = 3225565520;
+  checksumData[1] = 3698230950;
+  checksumData[2] = 1847306651;
+  checksumData[3] = 3248063875;
   mxSetCell(mxModules, 1, mxChksum);
   return mxModules;
 }
@@ -84,40 +80,40 @@ static int cgxe_process_get_checksums(int nlhs, mxArray* plhs[], int nrhs, const
   {
     mxArray* mxModelChksum = mxCreateDoubleMatrix(1, 4, mxREAL);
     double* checksumData = (double*) mxGetData(mxModelChksum);
-    checksumData[0] = 3546187603;
-    checksumData[1] = 703658292;
-    checksumData[2] = 3385310113;
-    checksumData[3] = 818246025;
+    checksumData[0] = 2085204485;
+    checksumData[1] = 3908245580;
+    checksumData[2] = 3574740446;
+    checksumData[3] = 3129166317;
     mxSetField(mxChecksum, 0, "model", mxModelChksum);
   }
 
   {
     mxArray* mxMakefileChksum = mxCreateDoubleMatrix(1, 4, mxREAL);
     double* checksumData = (double*) mxGetData(mxMakefileChksum);
-    checksumData[0] = 2118389191;
-    checksumData[1] = 2839407834;
-    checksumData[2] = 769641706;
-    checksumData[3] = 3848827321;
+    checksumData[0] = 2948785813;
+    checksumData[1] = 3311252601;
+    checksumData[2] = 2156161282;
+    checksumData[3] = 2854728805;
     mxSetField(mxChecksum, 0, "makefile", mxMakefileChksum);
   }
 
   {
     mxArray* mxTargetChksum = mxCreateDoubleMatrix(1, 4, mxREAL);
     double* checksumData = (double*) mxGetData(mxTargetChksum);
-    checksumData[0] = 1635109058;
-    checksumData[1] = 2120455702;
-    checksumData[2] = 12658520;
-    checksumData[3] = 3454939730;
+    checksumData[0] = 2443141041;
+    checksumData[1] = 3932355902;
+    checksumData[2] = 2166964269;
+    checksumData[3] = 2245392606;
     mxSetField(mxChecksum, 0, "target", mxTargetChksum);
   }
 
   {
     mxArray* mxOverallChksum = mxCreateDoubleMatrix(1, 4, mxREAL);
     double* checksumData = (double*) mxGetData(mxOverallChksum);
-    checksumData[0] = 343167619;
-    checksumData[1] = 57066427;
-    checksumData[2] = 4051817025;
-    checksumData[3] = 3814600044;
+    checksumData[0] = 500204159;
+    checksumData[1] = 20603040;
+    checksumData[2] = 3177022769;
+    checksumData[3] = 2934412960;
     mxSetField(mxChecksum, 0, "overall", mxOverallChksum);
   }
 
@@ -137,17 +133,17 @@ static int cgxe_mex_unlock_call(int nlhs, mxArray * plhs[], int nrhs, const
 
 static SimStruct* cgxe_unpack_simstruct(const mxArray *mxS)
 {
-  int *intPtr = (int*)malloc(sizeof(SimStruct*));
-  int nEl = sizeof(SimStruct*)/sizeof(int);
-  double *dblPtr = mxGetPr(mxS);
+  uint32_T *uintPtr = (uint32_T*)malloc(sizeof(SimStruct*));
+  int nEl = sizeof(SimStruct*)/sizeof(uint32_T);
+  uint32_T *uintDataPtr = (uint32_T *)mxGetData(mxS);
   int el;
   SimStruct *S;
   for (el=0; el < nEl; el++) {
-    intPtr[el] = (int)(dblPtr[el]);
+    uintPtr[el] = uintDataPtr[el];
   }
 
-  S = *((SimStruct**)intPtr);
-  free(intPtr);
+  memcpy(&S,uintPtr,sizeof(SimStruct*));
+  free(uintPtr);
   return S;
 }
 
@@ -187,15 +183,15 @@ static int cgxe_get_BuildInfoUpdate(int nlhs, mxArray * plhs[], int nrhs, const
   char tpChksum[64];
   mxGetString(prhs[1], tpChksum,sizeof(tpChksum)/sizeof(char));
   tpChksum[(sizeof(tpChksum)/sizeof(char)-1)] = '\0';
-  if (strcmp(tpChksum, "nDmS38SZ3sHBJKA7UrolW") == 0) {
-    extern mxArray *cgxe_nDmS38SZ3sHBJKA7UrolW_BuildInfoUpdate(void);
-    plhs[0] = cgxe_nDmS38SZ3sHBJKA7UrolW_BuildInfoUpdate();
+  if (strcmp(tpChksum, "owKPoy1aFja8C3yCftdRL") == 0) {
+    extern mxArray *cgxe_owKPoy1aFja8C3yCftdRL_BuildInfoUpdate(void);
+    plhs[0] = cgxe_owKPoy1aFja8C3yCftdRL_BuildInfoUpdate();
     return 1;
   }
 
-  if (strcmp(tpChksum, "tt36X2ncayc7iQeNkctM4F") == 0) {
-    extern mxArray *cgxe_tt36X2ncayc7iQeNkctM4F_BuildInfoUpdate(void);
-    plhs[0] = cgxe_tt36X2ncayc7iQeNkctM4F_BuildInfoUpdate();
+  if (strcmp(tpChksum, "UNza5NJYMU5Va6ej8pRN9F") == 0) {
+    extern mxArray *cgxe_UNza5NJYMU5Va6ej8pRN9F_BuildInfoUpdate(void);
+    plhs[0] = cgxe_UNza5NJYMU5Va6ej8pRN9F_BuildInfoUpdate();
     return 1;
   }
 
@@ -224,29 +220,12 @@ static int ProcessMexSfunctionCmdLineCall(int nlhs, mxArray* plhs[], int nrhs,
     return cgxe_get_sim_state(nlhs, plhs, nrhs, prhs);
   }
 
-  if ((strcmp(commandName, "NameResolution") == 0)||
-      (strcmp(commandName, "AutoInfer") == 0)) {
-    if (nrhs < 2 || !mxIsChar(prhs[1]))
-      return 0;
-    return cgxe_robocup_model_autoInfer_dispatcher(prhs[1], plhs, commandName);
-  }
-
   if (strcmp(commandName, "set_sim_state") == 0) {
     return cgxe_set_sim_state(nlhs, plhs, nrhs, prhs);
   }
 
   if (strcmp(commandName, "get_BuildInfoUpdate") == 0) {
     return cgxe_get_BuildInfoUpdate(nlhs, plhs, nrhs, prhs);
-  }
-
-  if (strcmp(commandName, "mex_initialize") == 0) {
-    cgxe_robocup_model_initializer();
-    return 1;
-  }
-
-  if (strcmp(commandName, "mex_terminate") == 0) {
-    cgxe_robocup_model_terminator();
-    return 1;
   }
 
   return 0;
