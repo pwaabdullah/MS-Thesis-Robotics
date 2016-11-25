@@ -1,35 +1,45 @@
 int sensorValue = 0;
 
-int ready1 = 1;
-int ready2 = 2;
-int ready3 = 3;
-int ready4 = 4;
+int speed1 = 2;
+int speed2 = 3;
+int speed3 = 4;
+int speed4 = 5;
 
-int enable1 = 5;
-int enable2 = 6;
-int enable3 = 7;
-int enable4 = 8;
+int enable1 = 22;
+int enable2 = 23;
+int enable3 = 24;
+int enable4 = 25;
 
-int dir1 = 9;
-int dir2 = 10;
-int dir3 = 11;
-int dir4 = 12;
+int ready1 = 28;
+int ready2 = 29;
+int ready3 = 30;
+int ready4 = 31;
+
+int dir1 = 34;
+int dir2 = 35;
+int dir3 = 36;
+int dir4 = 37;
 
 void setup() {
-    pinMode(ready1, INPUT);
-    pinMode(ready2, INPUT);
-    pinMode(ready3, INPUT);
-    pinMode(ready4, INPUT);
-
-    pinMode(enable1, OUTPUT);
-    pinMode(enable2, OUTPUT);
-    pinMode(enable3, OUTPUT);
-    pinMode(enable4, OUTPUT);
+    pinMode(speed1, OUTPUT);
+    pinMode(speed2, OUTPUT);
+    pinMode(speed3, OUTPUT);
+    pinMode(speed4, OUTPUT);
 
     pinMode(dir1, OUTPUT);
     pinMode(dir2, OUTPUT);
     pinMode(dir3, OUTPUT);
     pinMode(dir4, OUTPUT);
+
+    pinMode(enable1, OUTPUT);
+    pinMode(enable2, OUTPUT);
+    pinMode(enable3, OUTPUT);
+    pinMode(enable4, OUTPUT);
+  
+    pinMode(ready1, INPUT);
+    pinMode(ready2, INPUT);
+    pinMode(ready3, INPUT);
+    pinMode(ready4, INPUT);
 
     digitalWrite(enable1, HIGH);
     digitalWrite(enable2, HIGH);
@@ -43,11 +53,9 @@ void loop() {
  
    if ((digitalRead(ready1)==HIGH)&(digitalRead(ready2)==HIGH)&(digitalRead(ready3)==HIGH)&(digitalRead(ready4)==HIGH))
   {
-   Serial.println("ready");
-  }
+   
  
  while (Serial.available() > 0) {
-     Serial.println("go ");
     int d1 = Serial.parseInt();
     int v1 = Serial.parseInt();
     int d2 = Serial.parseInt();
@@ -83,10 +91,14 @@ void loop() {
       if (v4<5) { digitalWrite(enable4, LOW); }
       else { digitalWrite(enable4, HIGH); }
     
-    analogWrite(A1, v1);
-    analogWrite(A2, v2);
-    analogWrite(A3, v3);
-    analogWrite(A4, v4);
+    analogWrite(speed1, v1);
+    analogWrite(speed2, v2);
+    analogWrite(speed3, v3);
+    analogWrite(speed4, v4);
     }
  }
+}
+else {
+  Serial.println("Not ready");
+  }
 }
