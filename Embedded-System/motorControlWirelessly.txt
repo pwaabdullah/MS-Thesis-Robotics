@@ -1,0 +1,38 @@
+/**
+ * XBee Example Test
+ * A test application that demonstrates the ability
+ * of transmitting serial data via an XBee module with
+ * an mbed microprocesor.
+ * By: Vlad Cazan
+ * Date: Tuesday, September 29th 2009
+ */
+
+#include "mbed.h"
+#include "Motor.h"
+
+Serial xbee1(D1, D0); //Creates a variable for serial comunication through pin 9 and 10
+
+Serial pc(USBTX, USBRX);//Opens up serial communication through the USB port via the computer
+Motor m(D2,D12,D11);
+
+int main() {
+    pc.printf("Press 1 to ON and 2 for OFF");
+    while (1) {//Neverending Loop
+        if (pc.readable()) {//Checking for serial comminication
+            pc.putc(pc.getc());       
+            xbee1.putc(pc.getc()); //XBee write whatever the PC is sending
+            if(pc.getc() == '1') {
+                for (float s= 0.0; s < 1.0 ; s += 0.1) {
+                    m.speed(s); 
+                    wait(0.01);
+                }  
+            }
+            if(pc.getc() == '2') {
+                for (float s= 1.0; s > 0 ; s -= 0.1) {
+                    m.speed(s); 
+                    wait(0.01);
+                }
+            }
+            }
+        }
+    }

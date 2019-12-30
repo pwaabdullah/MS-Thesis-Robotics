@@ -1,0 +1,32 @@
+#include "mbed.h"
+#include "Motor.h"
+ 
+Serial pc(USBTX, USBRX); // tx, rx
+PwmOut led(LED1);
+Motor m(D2,D12,D11);
+ 
+int main() {
+    
+    pc.printf("Press 1 to ON and 2 for OFF");
+ 
+    while(1) {
+        char c = pc.getc();
+        if(c == '1') {
+            pc.putc(c);
+            led = 0;
+            for (float s= 0.0; s < 1.0 ; s += 0.1) {
+                m.speed(s); 
+                wait(0.01);
+            }  
+        }
+        if(c == '2') {
+            pc.putc(c);
+            led = 1;
+            for (float s= 1.0; s > 0 ; s -= 0.1) {
+                m.speed(s); 
+                wait(0.01);
+            }
+        }
+ 
+    }
+}
